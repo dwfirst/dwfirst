@@ -1,35 +1,41 @@
-# 🌿 `System.Bio_Online` ⚙️
-
 <p align="center">
-  <!-- Анимированный био-киберпанк текст -->
-  <img src="https://demolab.com" alt="Typing SVG" />
+  <img src="<img width="1200" height="400" alt="Image" src="https://github.com/user-attachments/assets/d6821410-4c75-499c-b699-28ac7074afb1" />" width="100%" alt="Ecosystem Banner" />
 </p>
 
-<p align="center">
-  <!-- Карточки статистики в стиле Cyber-Nature (тема Tokyo Night / Green) -->
-  <img src="https://vercel.app" alt="GitHub Stats" />
-  <img src="https://vercel.app" alt="Top Langs" />
-</p>
+<br />
 
----
-
-### 🧬 Tech Ecosystem & Infrastructure
-
-```config
-[🌱] Root Languages ─── Python (3.10+), SQL, Bash
-[⚡] Core Synapses ──── PyQt6, qasync, asyncio, aiohttp
-[🛰️] Environment ────── Algorithmic Trading, HFT Networks, Bio-Architectures
-```
-
----
-
-### 🪓 Cultivated Projects
-
-* **[Bybit HFT Impulse Bot (v5.0) 🌿](../dwfirst/dwfirst)** 
-  *An advanced HFT automation engine wrapped in a high-performance Cyber-Antique PyQt6 layout. Merging raw data velocity with clean architectural forms.*
-
----
+<h1 align="center">dwfirst</h1>
+<p align="center"><b>Algorithmic Architecture & High-Frequency Trading Systems</b></p>
 
 <p align="center">
   <img src="https://shields.io" />
+  <img src="https://shields.io" />
+  <img src="https://shields.io" />
 </p>
+
+---
+
+### 🌐 Overview
+Engineering low-latency trading automation with a core philosophy rooted in **organic architecture** — designing code environments that are highly adaptive, resilient, and structurally balanced. Specializing in asynchronous data streams, high-performance desktop interfaces, and real-time execution layers.
+
+### 🛠️ Tech Stack & Ecosystem
+* **Core Languages** — Python (3.10+), SQL, Bash
+* **Frameworks & Async** — PyQt6, qasync, asyncio, aiohttp
+* **Key Competencies** — Quantitative Trading, WebSocket Protocols, Responsive UI/UX, Server-side Risk Management
+
+### 🤖 Featured Production
+* **[Bybit HFT Impulse Bot (v5.0)](../dwfirst/Bybit-HFT-Impulse-Bot)**
+  An advanced high-frequency momentum processor built around an asynchronous event loop. Features parallel order routing (`asyncio.to_thread`) and an adaptive, telemetry-dense desktop dashboard.
+
+---
+
+<p align="center">
+  <img src="https://vercel.app" height="150" />
+</p>
+
+<br />
+
+<p align="center">
+  <sub>"Code as an ecosystem: structured, efficient, adaptive."</sub>
+</p>
+
