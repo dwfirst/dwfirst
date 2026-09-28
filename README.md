@@ -3,13 +3,13 @@
 
 <img width="1200" height="400" alt="Image" src="https://github.com/user-attachments/assets/d6821410-4c75-499c-b699-28ac7074afb1" />
 
-###Systems Architect & Technical Visionary
+### Systems Architect & Technical Visionary
 
 Focusing on the convergence of high-dimensional computing infrastructure and adaptive structural design. Designing resilient digital ecosystems, multi-threaded frameworks, and clean operational logic from high-level abstract concepts to core execution layers.
 
 ---
 
-###Core Competencies
+### Core Competencies
 
 * **Systems Architecture** — Translating complex conceptual theories into balanced, robust, and highly adaptive system layouts.
 * **Cognitive Engineering** — Modeling advanced human-machine interaction loops, autonomous routing logic, and intelligent data systems.
