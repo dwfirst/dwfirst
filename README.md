@@ -1,4 +1,4 @@
-![Ecosystem Banner](https://github.com)
+![Ecosystem Banner](banner.png)
 
 # dwfirst
 ### Systems Architect & Technical Visionary
