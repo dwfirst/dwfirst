@@ -1,17 +1,11 @@
 <p align="center">
-  <img src="(https://github.com/dwfirst/dwfirst/issues/1#issue-5613493359)" width="100%" alt="Ecosystem Banner" />
+  <img src="https://github.com" width="100%" alt="Ecosystem Banner" />
 </p>
 
 <br />
 
 <h1 align="center">dwfirst</h1>
 <p align="center"><b>Systems Architect • Technical Visionary • Concept Demiurge</b></p>
-
-<p align="center">
-  <img src="https://shields.io" />
-  <img src="https://shields.io" />
-  <img src="https://shields.io" />
-</p>
 
 ---
 
@@ -43,4 +37,3 @@ Operating with intuitive, multithreaded cognitive patterns, I design tech enviro
 <p align="center">
   <sub>"Code is an environment to be cultivated, balanced, and set free."</sub>
 </p>
-
