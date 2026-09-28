@@ -1,4 +1,4 @@
-![Ecosystem Banner](banner.png)
+<img width="1200" height="400" alt="Image" src="https://github.com/user-attachments/assets/d6821410-4c75-499c-b699-28ac7074afb1" />
 
 # dwfirst
 ### Systems Architect & Technical Visionary
