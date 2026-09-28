@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="<img width="1200" height="400" alt="Image" src="https://github.com/user-attachments/assets/d6821410-4c75-499c-b699-28ac7074afb1" />" width="100%" alt="Ecosystem Banner" />
+  <img src="https://github.com" width="100%" alt="Ecosystem Banner" />
 </p>
 
 <br />
