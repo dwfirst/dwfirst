@@ -1,0 +1,39 @@
+{
+  "id": "books/book_iris",
+  "category": "books",
+  "name": "book_iris",
+  "path": "X:\\10_projects\\books\\book_iris",
+  "created": "2026-10-02T07:37:17",
+  "modified": "2026-10-02T19:29:17",
+  "scanned_at": "2026-10-03T07:28:16",
+  "file_count": 3,
+  "dir_count": 2,
+  "total_bytes": 884,
+  "files": [
+    {
+      "path": "context.md",
+      "bytes": 89,
+      "modified": "2026-10-02T07:37:17"
+    },
+    {
+      "path": "meta.json",
+      "bytes": 768,
+      "modified": "2026-10-02T19:29:17"
+    },
+    {
+      "path": "timeline.md",
+      "bytes": 27,
+      "modified": "2026-10-02T07:37:17"
+    }
+  ],
+  "dirs": {
+    "chapters": 0,
+    "notes": 0
+  },
+  "summary": "",
+  "tags": [
+    "iris",
+    "agi",
+    "book"
+  ]
+}

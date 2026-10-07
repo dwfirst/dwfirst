@@ -1,0 +1,6 @@
+﻿{
+  "role": "writer",
+  "description": "Писатель: длинные формы, главы книги, сцены.",
+  "active": false,
+  "priority": 5
+}

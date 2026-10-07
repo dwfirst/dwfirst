@@ -1,0 +1,6 @@
+﻿{
+  "role": "philosopher",
+  "description": "Философ: медленный, глубокий разбор идей.",
+  "active": false,
+  "priority": 5
+}

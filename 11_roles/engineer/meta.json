@@ -1,0 +1,6 @@
+﻿{
+  "role": "engineer",
+  "description": "Инженер: архитектура, схемы, компромиссы.",
+  "active": false,
+  "priority": 5
+}

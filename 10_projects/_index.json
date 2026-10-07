@@ -1,0 +1,28 @@
+{
+  "updated_at": "2026-10-03T07:28:16",
+  "total_projects": 2,
+  "projects": [
+    {
+      "id": "books/book_iris",
+      "category": "books",
+      "name": "book_iris",
+      "created": "2026-10-02T07:37:17",
+      "modified": "2026-10-02T19:29:17",
+      "file_count": 3,
+      "total_bytes": 884,
+      "summary": "",
+      "tags": []
+    },
+    {
+      "id": "engineering/agi_iris",
+      "category": "engineering",
+      "name": "agi_iris",
+      "created": "2026-10-02T07:37:17",
+      "modified": "2026-10-02T19:29:17",
+      "file_count": 2,
+      "total_bytes": 798,
+      "summary": "",
+      "tags": []
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+﻿{
+  "role": "assistant",
+  "description": "Обычный ассистент: бытовое, короткое, по делу.",
+  "active": false,
+  "priority": 5
+}

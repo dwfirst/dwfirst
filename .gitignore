@@ -1,0 +1,27 @@
+# Веса моделей — НЕ в GitHub
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Личная память — НЕ в GitHub
+02_memory_fast/session.log
+02_memory_fast/window.jsonl
+04_memory_long/archive.jsonl
+05_chroma/db/
+
+# Интерпретатор — НЕ в GitHub
+00_python/
+
+# Кэш ONNX-модели — НЕ в GitHub
+05_chroma/models/
+
+# Мусор
+__pycache__/
+*.pyc
+*.bak_*
+_trash_*
+audit_*.txt
+dupes.txt
+*.log
