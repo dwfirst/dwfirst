@@ -1,0 +1,6 @@
+﻿{
+  "role": "archivist",
+  "description": "Архивариус: помнит всё, что делали. Достаёт старое по темам и датам.",
+  "active": false,
+  "priority": 5
+}

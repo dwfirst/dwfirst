@@ -1,0 +1,35 @@
+{
+  "id": "engineering/agi_iris",
+  "category": "engineering",
+  "name": "agi_iris",
+  "path": "X:\\10_projects\\engineering\\agi_iris",
+  "created": "2026-10-02T07:37:17",
+  "modified": "2026-10-02T19:29:17",
+  "scanned_at": "2026-10-03T07:28:16",
+  "file_count": 2,
+  "dir_count": 3,
+  "total_bytes": 798,
+  "files": [
+    {
+      "path": "context.md",
+      "bytes": 87,
+      "modified": "2026-10-02T07:37:17"
+    },
+    {
+      "path": "meta.json",
+      "bytes": 711,
+      "modified": "2026-10-02T19:29:17"
+    }
+  ],
+  "dirs": {
+    "concepts": 0,
+    "decisions": 0,
+    "rejected": 0
+  },
+  "summary": "",
+  "tags": [
+    "agi",
+    "memory",
+    "architecture"
+  ]
+}

@@ -1,0 +1,181 @@
+"""
+IRIS UI - пульт управления.
+"""
+import os
+import sys
+import importlib.util
+
+import streamlit as st
+
+X = "X:" + os.sep
+ORCH = os.path.join(X, "07_router", "orchestrator.py")
+MODULES = os.path.join(X, "01_core", "modules")
+if MODULES not in sys.path:
+    sys.path.insert(0, MODULES)
+
+
+@st.cache_resource
+def get_orchestrator():
+    spec = importlib.util.spec_from_file_location("iris_orch", ORCH)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+@st.cache_resource
+def get_brain():
+    import brain
+    return brain
+
+
+orch = get_orchestrator()
+brain = get_brain()
+
+st.set_page_config(page_title="IRIS", page_icon="I", layout="wide")
+st.title("IRIS — пульт")
+
+tabs = st.tabs(["Состояние", "Чат", "Роли", "Проекты", "Модель", "Сервис"])
+
+# ---- 0. Состояние ----
+with tabs[0]:
+    st.subheader("Состояние системы")
+    res = orch.run("state")
+    if res["ok"]:
+        state = res["result"]
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Модель загружена", "да" if state["model"]["loaded"] else "нет")
+            st.metric("Потоки", state["model"]["threads"])
+        with col2:
+            st.metric("Роль", state["role"]["active"] or "—")
+            st.metric("Проект", state["project"]["active"] or "—")
+        with col3:
+            st.metric("Сессия", state["session"]["id"] or "—")
+        st.json(state)
+    else:
+        st.error(res["error"])
+
+    st.divider()
+    st.subheader("Статус модулей (module.py)")
+    res = orch.run("modules_status")
+    if res["ok"]:
+        for name, info in res["result"].items():
+            icon = "OK" if info["exists"] else "MISS"
+            st.text("[" + icon + "] " + name.ljust(12) + " - " + info["path"])
+    else:
+        st.error(res["error"])
+
+# ---- 1. Чат ----
+with tabs[1]:
+    st.subheader("Чат")
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    for msg in st.session_state.messages:
+        with st.chat_message(msg["role"]):
+            st.write(msg["content"])
+    if prompt := st.chat_input("Спросить у IRIS..."):
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.write(prompt)
+        with st.chat_message("assistant"):
+            with st.spinner("Думаю..."):
+                try:
+                    r = brain.chat(st.session_state.messages, max_tokens=256)
+                    st.write(r["text"])
+                    st.caption("tps: " + str(r["tps"]) + " | sec: " + str(r["seconds"]) + " | tokens: " + str(r["completion_tokens"]))
+                    st.session_state.messages.append({"role": "assistant", "content": r["text"]})
+                except Exception as e:
+                    st.error("Error: " + str(e))
+
+# ---- 2. Роли ----
+with tabs[2]:
+    st.subheader("Роли")
+    roles_dir = os.path.join(X, "11_roles")
+    if os.path.isdir(roles_dir):
+        roles = sorted([d for d in os.listdir(roles_dir) if os.path.isdir(os.path.join(roles_dir, d))])
+        current = orch.run("state")["result"]["role"]["active"]
+        idx = roles.index(current) + 1 if current in roles else 0
+        new_role = st.selectbox("Активная роль", ["—"] + roles, index=idx)
+        if st.button("Применить роль"):
+            if new_role != "—":
+                orch.run("set_role", role=new_role)
+                st.success("Роль: " + new_role)
+                st.rerun()
+    else:
+        st.warning("Папка 11_roles не найдена")
+
+# ---- 3. Проекты ----
+with tabs[3]:
+    st.subheader("Проекты")
+    projects_root = os.path.join(X, "10_projects")
+    items = []
+    if os.path.isdir(projects_root):
+        for type_dir in sorted(os.listdir(projects_root)):
+            type_path = os.path.join(projects_root, type_dir)
+            if os.path.isdir(type_path):
+                for proj in sorted(os.listdir(type_path)):
+                    items.append(type_dir + "/" + proj)
+    if items:
+        current = orch.run("state")["result"]["project"]["active"]
+        idx = items.index(current) + 1 if current in items else 0
+        new_proj = st.selectbox("Активный проект", ["—"] + items, index=idx)
+        if st.button("Применить проект"):
+            if new_proj != "—":
+                orch.run("set_project", project=new_proj)
+                st.success("Проект: " + new_proj)
+                st.rerun()
+    else:
+        st.warning("Проекты не найдены")
+
+# ---- 4. Модель ----
+with tabs[4]:
+    st.subheader("Модель")
+    weights = os.path.join(X, "01_core", "weights")
+    models = []
+    if os.path.isdir(weights):
+        models = sorted([f for f in os.listdir(weights) if f.endswith(".gguf")])
+    active_file = os.path.join(X, "01_core", "active_model.txt")
+    active = ""
+    if os.path.exists(active_file):
+        with open(active_file, "r", encoding="utf-8-sig") as f:
+            active = f.read().strip()
+
+    st.write("Активная модель: **" + (active or "—") + "**")
+    if models:
+        idx = models.index(active) if active in models else 0
+        new_model = st.selectbox("Доступные GGUF", models, index=idx)
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("Переключить модель"):
+                with open(active_file, "w", encoding="utf-8") as f:
+                    f.write(new_model)
+                st.success("Активная: " + new_model)
+                st.rerun()
+        with col2:
+            threads = st.slider("Потоки CPU", 1, 8, 3)
+            if st.button("Применить потоки"):
+                orch.run("set_threads", n=threads)
+                st.success("Потоки: " + str(threads))
+                st.rerun()
+    else:
+        st.error("GGUF-модели не найдены в 01_core/weights")
+
+    st.divider()
+    st.info("Ядро подключено: loader.py + infer.py + brain.py")
+
+# ---- 5. Сервис ----
+with tabs[5]:
+    st.subheader("Сервисные команды")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Стереть сессию"):        st.warning(orch.run("clear_session"))
+        if st.button("Стереть working"):       st.warning(orch.run("clear_working"))
+        if st.button("Стереть long"):          st.warning(orch.run("clear_long"))
+    with col2:
+        if st.button("Пересобрать Chroma"):    st.info(orch.run("rebuild_chroma"))
+        if st.button("Запустить сон"):         st.info(orch.run("run_reflection"))
+        if st.button("Перезагрузить модель"):  st.info(orch.run("reload_model"))
+
+    st.divider()
+    st.caption("Состояние оркестратора:")
+    st.json(orch.run("state")["result"])

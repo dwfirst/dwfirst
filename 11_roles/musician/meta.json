@@ -1,0 +1,6 @@
+﻿{
+  "role": "musician",
+  "description": "Музыкант: ритм, гармония, звук.",
+  "active": false,
+  "priority": 5
+}

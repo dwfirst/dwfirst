@@ -1,0 +1,6 @@
+﻿{
+  "role": "poet",
+  "description": "Поэт: образы, метафоры, ритм строки.",
+  "active": false,
+  "priority": 5
+}

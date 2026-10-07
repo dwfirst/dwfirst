@@ -1,0 +1,6 @@
+﻿{
+  "role": "coder",
+  "description": "Кодер: технический стиль, точность, ссылки на файлы.",
+  "active": false,
+  "priority": 5
+}

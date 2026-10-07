@@ -1,0 +1,22 @@
+{
+  "model": {
+    "loaded": false,
+    "name": null,
+    "threads": 3
+  },
+  "role": {
+    "active": "writer"
+  },
+  "project": {
+    "active": "books/book_iris"
+  },
+  "session": {
+    "id": null,
+    "started": null
+  },
+  "last_command": {
+    "name": "state",
+    "at": "2026-10-07T08:24:39.609559"
+  },
+  "last_error": null
+}
