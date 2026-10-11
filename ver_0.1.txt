@@ -1,0 +1,442 @@
+$path = "X:\project_state.md"
+$stamp = Get-Date -Format 'yyyyMMdd_HHmmss'
+if (Test-Path $path) {
+    Copy-Item $path "$path.bak_$stamp"
+    Write-Host "backup -> $path.bak_$stamp"
+}
+
+$code = @'
+# PROJECT_STATE.md — IRIS Local Brain v3.1
+
+**Формат:** для чтения нейросетью. Плотно, без воды.
+**Назначение:** восстановление контекста проекта в новом чате/сессии/у другого ассистента.
+**Дата:** 2026-10-06
+**Как использовать:** первая реплика в новом чате: «Прочитай X:\project_state.md и продолжай с указанной точки».
+---
+## 1. КОНЦЕПТ
+
+**IRIS (Айрис)** — портативный «второй мозг» на съёмном SSD (X:\). Не ассистент-отвечатель, а **симбиотический интеллект**: архивариус + соавтор. Работает локально, на CPU, без интернета и GPU.
+
+**Ядро личности:** `00_dna\identity_core.md` — **546 токенов**. Не менять без Создателя.
+
+**Роли:** 9 ролей (archivist, assistant, coder, engineer, mirror, musician, philosopher, poet, writer). Роль — профессия поверх личности.
+
+**Пользователь:** «Создатель», гуманитарий. Книга, инженерный проект, философия, музыка (Reaper). Объяснять инженерно, без жаргона.
+
+**Принципы:**
+- Модель — голос. Память — отдельно.
+- АРХИВ НЕИЗМЕНЕН, КЭШ — РАСХОДНИК.
+- system = ядро + роль + проект + retrieval, всё в рамках бюджета.
+- Портативность: SSD в любой Windows-ПК.
+**Глобальный концепт:** `X:\iris_concept.md`. Не трогаем.
+---
+
+## 2. ЖЕЛЕЗО
+- CPU: Intel i3-1115G4, 2 ядра / 4 потока, AVX2.
+- RAM: 15.8 ГБ. GPU: нет. ОС: Windows 10, PS 5.1.
+- Python: 3.12.7 embed, `X:\00_python\python.exe`.
+- llama-cpp-python: 0.3.30.
+- chromadb: 1.5.9 + onnxruntime 1.30.0.
+- streamlit: 1.56.0.
+- Скорость: ~3–7 ток/сек.
+- **Модели (3 шт):**
+  - `Ministral-3-3B-Instruct-2512-Q4_K_M.gguf` (новая)
+  - `gemma-4-E4B-it-Q4_K_M.gguf` (актив)
+  - `qwen2.5-coder-7b-instruct-q4_k_m.gguf` (резерв)
+
+**config.json:**
+- `n_ctx=9000`, `n_threads=2`, `n_batch=512`, `max_tokens=512`.
+- budget: `core=600`, `role=400`, `project=400`, `retrieval=1600`, `window=4500`, `query=600`, `reserve=700`. Сумма 8800.
+- compaction: `t_max=4500`, `t_retained=2000`, `summary_tokens=400`.
+
+---
+## 3. СТРУКТУРА X:\
+X:
+├── project_state.md ← этот файл (v3.1)
+├── iris_concept.md ← глобальный концепт
+├── 00_dna\ identity.json, identity_core.md, config.json, safety.json
+├── 00_python\ Python 3.12.7 + site-packages (6000+ .py — НЕ ТРОГАТЬ)
+├── 01_core
+│ ├── active_model.txt
+│ ├── weights\ 3 GGUF
+│ └── modules\ loader, infer, brain, module(стub)
+├── 02_memory_fast\ storage, counter, compaction
+├── 03_memory_working\ working.py (L1/L2/L3)
+├── 04_memory_long\ long_memory.py (append-only)
+├── 05_chroma\ chroma_store.py, db, models, ingested_hashes.json
+├── 06_reflection\ diary, inner_voice, dream, night_mode
+├── 07_router\ orchestrator, router, commands
+├── 08_tools\ module.py (4 инструмента), parser.py (3 формата)
+├── 09_inbox\ ingest.py + .md-файлы
+├── 10_projects\ indexer.py + 9 категорий проектов
+├── 11_roles\ 9 ролей
+├── 90_ui\ app.py, app_v3.py, app_v4.py
+├── 92_data\ audit.ps1, audit_.txt, dupes.txt, trash*
+├── 93_logs\ ui.log
+└── bootstrap.py
+
+text
+
+**Своих `.py`: 48.** Остальные 6194 — pip-библиотеки в `00_python\Lib\site-packages\`.
+
+---
+
+## 4. КОНВЕНЦИИ КОДА
+
+1. Все .py и .toml — БЕЗ BOM (`WriteAllText` + `UTF8Encoding $false`).
+2. `Set-Content -Encoding UTF8` НЕ использовать.
+3. Чтение в Python: `encoding="utf-8-sig"`.
+4. Пути: `X = "X:" + os.sep`.
+5. JSON — вручную, не через `ConvertTo-Json`.
+6. Русский текст в `python -c` НЕ передавать — через файл.
+7. Три system-сообщения подряд — опасно. Склеивать в одно.
+8. Каждая правка `.py` — с бэкапом `.bak_YYYYMMDD_HHMMSS`.
+
+---
+
+## 5. ПРИНЯТЫЕ РЕШЕНИЯ
+
+- GGUF 3–7B Q4_K_M на CPU, llama-cpp-python 0.3.30.
+- chromadb 1.5.9 + LocalONNX (модель на X:, портативно).
+- Плоский корень 00–11 + 90–93.
+- АРХИВ НЕИЗМЕНЕН, КЭШ — РАСХОДНИК.
+- Бюджет 7 полей, сумма ≤ n_ctx.
+- Ядро — первое в system.
+- Инструменты — только чтение. Whitelist: 10_projects, 09_inbox, 03_memory_working, 92_data/exports.
+- **ModelManager в brain.py:** `list_models`, `current_model`, `load_model_by_name`. `reset()` с `close()` + `gc.collect()`.
+- **UI v4** — `st.chat_input` + `st.write_stream`, `@st.fragment` для сайдбара, `brain` без `@st.cache_resource`.
+- **Chroma metadatas:** только строковые значения. `None` → `""`, `int` → `str()`.
+
+---
+
+## 6. ПОТОК ДАННЫХ
+UI → brain.chat_one(text)
+├─ storage.append("user") → session.log
+├─ long_memory.append("user") → archive.jsonl
+├─ window.append(user) → window.jsonl
+├─ if needs_compaction: compaction
+├─ build_system_message(split=True) → {core, role, project}
+├─ _retrieve(llama, text) → [ВОСПОМИНАНИЯ] из Chroma
+├─ combined → ОДНО system-сообщение
+├─ generate(llama, chat_msgs)
+├─ tool-use: parser → module.call → результат → второй проход
+├─ storage.append("assistant")
+├─ long_memory.append("assistant")
+├─ window.append(assistant)
+├─ _index_dialog(user, assistant) → Chroma (origin: dialog)
+└─ return {text, tps, seconds, compaction, budget, routing, tool_use}
+
+text
+---
+## 7. СОСТОЯНИЕ
+
+**✅ Сделано (2026-10-06):**
+- Структура X:\ (48 своих .py).
+- Python 3.12.7 + llama-cpp-python 0.3.30 + chromadb 1.5.9 + streamlit 1.56.0.
+- Все модули 01–11 работают.
+- Ядро `identity_core.md` встроено.
+- 9 ролей с `[ИНСТРУМЕНТЫ]`.
+- Tool-use end-to-end работает.
+- `orchestrator.py ping → pong`.
+- **3 модели в weights\.**
+- **ModelManager в brain.py** — переключение моделей.
+- **UI v4** (`X:\90_ui\app_v4.py`) — тёмный, минималистичный, сайдбар + чат.
+- **Индексация работает:** 12 файлов → 26 чанков. Chroma = 36.
+- Чистка: 7 `module.py`-клонов + 10 `__pycache__` → карантин.
+- `bootstrap.py` + `_LAUNCH.bat`.
+
+**❌ Не сделано:**
+- Sticky top-bar в UI (проблема Streamlit + `position: sticky`). Нужен `position: fixed` с отступом.
+- Кнопки в сайдбаре — выровнять, единая ширина.
+- Журналы в UI — expander добавлен, но проверить записи.
+- **Шаг 28b:** умный ingest — классификация.
+- **Шаг 31:** роли — `style.md` / `rules.md` / `examples.jsonl`.
+- **Шаг 32:** Reaper-инструменты.
+- **Шаг 33:** DaVinci-инструменты.
+- `context.md` проектов — заглушки.
+- Мультиязычный эмбеддер.
+- `swap.py`.
+- Ротация `session.log`.
+---
+## 8. РОАДМАП
+
+- Шаги 19–29. ✅
+- Шаг 28a. ✅ (n_ctx 9000, бюджет 7 полей, ядро).
+- **Шаг 28b.** TODO (СЛЕДУЮЩИЙ): умный ingest — классификация.
+- Шаг 28c. ✅ fix metadatas в ingest + chroma_store.
+- Шаг 29. ✅ _LAUNCH.bat + bootstrap.py.
+- **Шаг 30.** В процессе: UI v4 работает, доделать sticky + кнопки + журналы.
+- Шаг 31. TODO: роли — style.md + rules.md + examples.jsonl.
+- Шаг 32. TODO: Reaper-инструменты.
+- Шаг 33. TODO: DaVinci-инструменты.
+
+**Вектор:** сначала мозг, потом череп, потом руки.
+---
+## 9. ОТКРЫТЫЕ ВОПРОСЫ
+
+1. **Мультиязычный эмбеддер** — заменить `all-MiniLM-L6-v2` на `paraphrase-multilingual-MiniLM-L12-v2`?
+2. **Sticky top-bar** — `position: fixed` или отказаться от sticky?
+3. **PDF** — пока не поддерживаем.
+4. **Reaper vs DaVinci** — с чего начинать? Reaper.
+5. **DaVinci Free vs Studio** — если Free, API недоступен.
+---
+## 10. БАГИ И УЯЗВИМОСТИ
+**P0:** нет. config восстановлен, индексация работает.
+
+**P1 (важно):**
+- Sticky top-bar не работает (`position: sticky` конфликтует со Streamlit `overflow`).
+- Кнопки в сайдбаре разной ширины.
+- `context.md` проектов — заглушки.
+- `style.md` / `rules.md` ролей — пустые шаблоны.
+- `examples.jsonl` ролей — 0 байт.
+
+**P2 (качество):**
+- Эмбеддер слаб для русского.
+- Ротация `session.log` не реализована.
+- Редактирование в библиотеке отсутствует.
+**Исправлено за все сессии:**
+- ✅ BOM в .py.
+- ✅ llama-cpp-python 0.3.19 → 0.3.30.
+- ✅ Русский текст в `python -c` → файл-скрипт.
+- ✅ `_split_window` гарантирует прогресс.
+- ✅ `compaction` читает из config.
+- ✅ `module.py` → `chroma_store.py`.
+- ✅ Ядро встроено.
+- ✅ n_ctx 6000 → 9000, бюджет 7 полей.
+- ✅ Парсер гибкий (3 формата).
+- ✅ Tool-use end-to-end работает.
+- ✅ Чистка: 770 `__pycache__` + 49 `.bak_*` (ранее).
+- ✅ config.json восстановлен (2026-10-06).
+- ✅ **8 module.py-клонов + 10 __pycache__ → карантин (2026-10-06).**
+- ✅ **ModelManager в brain.py (2026-10-06).**
+- ✅ **UI v4 (2026-10-06).**
+- ✅ **Fix metadatas в chroma_store + ingest (2026-10-06).**
+- ✅ **Индексация: 12 файлов → 26 чанков (2026-10-06).**
+---
+## 11. БЫСТРЫЙ СТАРТ
+
+**Проверка жив:**
+```powershell
+X:\00_python\python.exe X:\07_router\orchestrator.py ping
+
+Запуск UI:
+powershell
+X:\00_python\python.exe -m streamlit run X:\90_ui\app_v4.py --server.port 8502
+
+Индексация:
+powershell
+X:\00_python\python.exe X:\09_inbox\ingest.py
+
+Список моделей:
+powershell
+X:\00_python\python.exe -c "import sys; sys.path.insert(0, r'X:\01_core\modules'); import brain; print(brain.list_models())"
+
+Проверка синтаксиса .py:
+powershell
+X:\00_python\python.exe -c "import ast; ast.parse(open(r'ПУТЬ', encoding='utf-8').read()); print('SYNTAX OK')"
+12. МЕТА
+Дата чекпоинта: 2026-10-06
+
+Версия: 3.1
+
+Статус: рабочий проект. Индексация работает. UI v4. ModelManager. Chroma = 36.
+
+Следующий шаг: Шаг 28b — умный ingest. Плюс P1 из раздела 10.
+
+Стиль: коротко, по одному шагу. Пользователь — гуманитарий.
+
+Ключевое правило: не усложнять. Один шаг = один работающий кусок.
+
+Роли: пользователь — архитектор, ассистент — инженер.
+
+13. ПРАВИЛА ДЛЯ НОВОГО АССИСТЕНТА
+Не переписывай работающее. loader, infer, brain, storage, counter, compaction, long_memory, working, chroma_store, indexer, ingest, orchestrator, module, parser, router — проверены.
+
+Один шаг — одна команда — один лог.
+
+Проверяй синтаксис через ast.parse.
+
+Пиши файлы без BOM через WriteAllText + UTF8Encoding $false.
+
+Русский текст в python -c не передавать — через файл-скрипт.
+
+Пользователь — гуманитарий. Инженерно, без жаргона.
+
+Сначала мозг, потом череп, потом руки.
+
+Архив неизменен, кэш — расходник.
+
+t_retained < t_max всегда.
+
+Бюджет — святое. Сумма ≤ n_ctx.
+
+Ядро identity_core.md — не трогать без Создателя.
+
+Роли — профессия + инструменты.
+
+Инструменты — только чтение. Whitelist: 10_projects, 09_inbox, 03_memory_working, 92_data/exports.
+
+Парсер — три формата. Белый список аргументов.
+
+Три system-сообщения подряд — опасно. Склеивать.
+
+Чанкинг для длинных входов. >2000 токенов — разбивать.
+
+Концепт iris_concept.md — не трогать.
+
+Черновики состояний — исторические артефакты. Единственный источник — этот файл.
+
+Не бойся сказать «стоп».
+
+Своих .py — 48. Остальное в 00_python — pip. Не аудировать.
+
+Агент не читает сырьё — читает отчёт о сырье. Свёртка через PowerShell. Скрипты X:\92_data\audit*.ps1.
+
+Чистка только через карантин. Remove-Item — вручную через 7 дней.
+
+UI не содержит логики. Только дёргает модули через safe().
+
+brain.py — единственное место, где живёт модель. @st.cache_resource на brain запрещён.
+
+Каждая правка .py — с бэкапом .bak_YYYYMMDD_HHMMSS. Откат одной командой.
+
+Chroma metadatas — только строки. None → "", int → str().
+'@
+
+u
+t
+f
+8
+=
+N
+e
+w
+−
+O
+b
+j
+e
+c
+t
+S
+y
+s
+t
+e
+m
+.
+T
+e
+x
+t
+.
+U
+T
+F
+8
+E
+n
+c
+o
+d
+i
+n
+g
+utf8=New−ObjectSystem.Text.UTF8Encodingfalse
+[System.IO.File]::WriteAllText(
+p
+a
+t
+h
+,
+path,code, 
+u
+t
+f
+8
+)
+W
+r
+i
+t
+e
+−
+H
+o
+s
+t
+"
+"
+W
+r
+i
+t
+e
+−
+H
+o
+s
+t
+"
+O
+K
+−
+>
+utf8)Write−Host""Write−Host"OK−>path"
+Write-Host "bytes: 
+(
+(
+G
+e
+t
+−
+I
+t
+e
+m
+((Get−Itempath).Length)"
+Write-Host "lines: 
+(
+(
+G
+e
+t
+−
+C
+o
+n
+t
+e
+n
+t
+((Get−Contentpath -Encoding UTF8).Count)"
+
+text
+
+**Ожидаемый вывод:**
+backup -> X:\project_state.md.bak_20261006_...
+OK -> X:\project_state.md
+bytes: ~14000
+lines: ~250
+
+text
+
+---
+
+## Проверка
+
+```powershell
+X:\00_python\python.exe -c "import os; p=r'X:\project_state.md'; print('bytes:', os.path.getsize(p)); print(open(p, encoding='utf-8-sig').read()[:120])"
+Ожидаю:
+
+text
+bytes: 14000
+# PROJECT_STATE.md — IRIS Local Brain v3.1
+Что дальше
+Запусти команду создания project_state.md v3.1.
+
+Пришли вывод (backup + OK + bytes + lines).
+
+Всё. День закрыт. Отдых.
+
+Завтра — новый чат, первое сообщение:

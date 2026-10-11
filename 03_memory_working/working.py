@@ -136,3 +136,57 @@ def stats():
 
 if __name__ == "__main__":
     print("working.py - module. stats:", stats())
+
+# ---------- ФУНКЦИИ ДЛЯ КОНСОЛИДАЦИИ (sleep.py) ----------
+
+def get_by_ids(ids):
+    """Return facts by list of ids. Preserves order."""
+    if not ids:
+        return []
+    id_set = set(ids)
+    found = {}
+    for r in _iter_all():
+        if r.get("id") in id_set:
+            found[r["id"]] = r
+    return [found[i] for i in ids if i in found]
+
+
+def update_fact(fact_id, **kwargs):
+    """Update fields of a fact by id. Returns updated record or None."""
+    if not fact_id:
+        return None
+    all_recs = []
+    updated = None
+    for r in _iter_all():
+        if r.get("id") == fact_id:
+            for k, v in kwargs.items():
+                if k not in ("id", "ts"):
+                    r[k] = v
+            updated = r
+        all_recs.append(r)
+    if updated:
+        with open(FACTS, "w", encoding="utf-8") as f:
+            for r in all_recs:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        _rebuild_index()
+    return updated
+
+
+def archive_facts(ids):
+    """Mark specific facts as archived by id. Returns count."""
+    if not ids:
+        return 0
+    id_set = set(ids)
+    all_recs = []
+    changed = 0
+    for r in _iter_all():
+        if r.get("id") in id_set and not r.get("archived"):
+            r["archived"] = True
+            changed += 1
+        all_recs.append(r)
+    if changed:
+        with open(FACTS, "w", encoding="utf-8") as f:
+            for r in all_recs:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        _rebuild_index()
+    return changed

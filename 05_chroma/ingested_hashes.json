@@ -1,207 +1,22 @@
 {
-  "47bead531c7898b6": {
-    "file": "test_notes.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-02T11:52:24"
-  },
-  "856023fe0326140d": {
-    "file": "test_philosophy.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-02T11:52:24"
-  },
-  "dialog_6e4336aed9500498": {
+  "dialog_9c236f160d9a9a23": {
     "file": "dialog",
     "chunks": 1,
-    "indexed_at": "2026-10-06T08:29:31"
+    "indexed_at": "2026-10-11T18:41:14"
   },
-  "dialog_8a7bf5bf64345463": {
+  "dialog_b71ccbecdf2c3fbd": {
     "file": "dialog",
     "chunks": 1,
-    "indexed_at": "2026-10-06T08:30:02"
+    "indexed_at": "2026-10-11T18:44:23"
   },
-  "dialog_a7b6cf55da376c6e": {
+  "dialog_b81cd246e1caf347": {
     "file": "dialog",
     "chunks": 1,
-    "indexed_at": "2026-10-06T08:43:48"
+    "indexed_at": "2026-10-11T19:32:11"
   },
-  "dialog_c5dbec9929fe4977": {
+  "dialog_bf07d35385335ef1": {
     "file": "dialog",
     "chunks": 1,
-    "indexed_at": "2026-10-06T09:19:26"
-  },
-  "dialog_bae6e889ea9efc7a": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T09:40:14"
-  },
-  "dialog_39084dd97346be76": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T09:41:29"
-  },
-  "dialog_fd28b293717c4bba": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T09:43:31"
-  },
-  "539e391559db8c3c": {
-    "file": "Бенджамин Либет.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:09"
-  },
-  "d7b5524cf0d91039": {
-    "file": "Жан Бодрийяр.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:09"
-  },
-  "ed774a65c93b5caf": {
-    "file": "Конрад Цузе.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:09"
-  },
-  "e6a97d47b52badee": {
-    "file": "Кристофер Данн.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:09"
-  },
-  "7d5611abbc47cc3d": {
-    "file": "Сигнал и задержки кандидатская.md",
-    "chunks": 15,
-    "indexed_at": "2026-10-06T15:45:10"
-  },
-  "a9cb59b03c721f5d": {
-    "file": "Стюарт Хамерофф.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:10"
-  },
-  "7dcf29c752a3d768": {
-    "file": "Теория всего.md",
-    "chunks": 3,
-    "indexed_at": "2026-10-06T15:45:10"
-  },
-  "681968acca8863a2": {
-    "file": "Уильям Берроуз.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:10"
-  },
-  "e113e9a8046516b0": {
-    "file": "Ханнес Альвен.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:10"
-  },
-  "6a8e9e033fcd22e4": {
-    "file": "Эдвард Фредкин.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T15:45:11"
-  },
-  "dialog_edbfbaca2a5b390a": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:14:43"
-  },
-  "dialog_c85ed9c7dfdffff9": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:16:01"
-  },
-  "dialog_30df8ff7167ee607": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:18:12"
-  },
-  "dialog_b0e31285f04d25da": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:20:12"
-  },
-  "f68bec55878c0a54": {
-    "file": "Бренд фин.md",
-    "chunks": 4,
-    "indexed_at": "2026-10-06T17:21:39"
-  },
-  "7e49e9bc277cecb9": {
-    "file": "Мой бренд.md",
-    "chunks": 4,
-    "indexed_at": "2026-10-06T17:21:39"
-  },
-  "318f635bd48d94dd": {
-    "file": "unified_model.txt",
-    "chunks": 5,
-    "indexed_at": "2026-10-06T17:24:21"
-  },
-  "dialog_70ac3ec5bf98c35a": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:29:13"
-  },
-  "dialog_1ee5f7ca9031cf7d": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:33:41"
-  },
-  "dialog_d4df81d0e5648de9": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:36:29"
-  },
-  "dialog_00cd2d8a42b8d737": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:45:19"
-  },
-  "dialog_31453d8a4ceec0c8": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:48:24"
-  },
-  "dialog_8d95b9c09343e765": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:51:34"
-  },
-  "dialog_67a6900f62682105": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:53:39"
-  },
-  "dialog_5a8950475220604c": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T17:57:51"
-  },
-  "dialog_691441ab884319d6": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T18:08:02"
-  },
-  "dialog_36dd3df9d96d4918": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T18:13:36"
-  },
-  "dialog_60be43101061d53a": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T18:21:59"
-  },
-  "dialog_1e5738c8696eaea2": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T18:30:14"
-  },
-  "dialog_d8a9d7b35c4c01bf": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T18:48:20"
-  },
-  "74b1e917e060b5b3": {
-    "file": "Жан Бодрийяр.md",
-    "chunks": 1,
-    "indexed_at": "2026-10-06T19:15:24"
-  },
-  "dialog_60d5780a8922682e": {
-    "file": "dialog",
-    "chunks": 1,
-    "indexed_at": "2026-10-07T08:09:42"
+    "indexed_at": "2026-10-11T19:44:09"
   }
 }

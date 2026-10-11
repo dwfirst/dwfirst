@@ -3,6 +3,8 @@ import os
 import sys
 import importlib.util
 import datetime
+import threading
+import time
 
 import streamlit as st
 
@@ -68,6 +70,12 @@ def get_night():
 
 
 @st.cache_resource
+def get_sleep():
+    import sleep
+    return sleep
+
+
+@st.cache_resource
 def get_ingest():
     import ingest
     return ingest
@@ -76,6 +84,7 @@ def get_ingest():
 orch = get_orch()
 working = get_working()
 night = get_night()
+sleep_mod = get_sleep()
 ingest_mod = get_ingest()
 
 st.set_page_config(page_title="IRIS", layout="wide", initial_sidebar_state="expanded")
@@ -300,7 +309,7 @@ with st.sidebar:
         with st.spinner("Сон..."):
             try:
                 llama, _ = brain.get_llama()
-                r, err = safe(night.run, llama, mode="sleep")
+                r, err = safe(sleep_mod.run, llama, days=7, max_groups=4)
             except Exception as e:
                 err, r = str(e), None
         if err:
@@ -341,11 +350,52 @@ st.markdown(f"""
 
 # ---- CHAT ----
 def stream_response(prompt):
-    r = brain.chat_one(prompt, max_tokens=512)
-    text = r.get("text", "")
+    """Streaming with thinking indicator + 10-min timeout."""
+    result = {"text": None, "done": False, "error": None}
+    
+    def worker():
+        try:
+            r = brain.chat_one(prompt, max_tokens=1024)
+            result["text"] = r.get("text", "")
+        except Exception as e:
+            result["error"] = str(e)
+        finally:
+            result["done"] = True
+    
+    thread = threading.Thread(target=worker, daemon=True)
+    thread.start()
+    
+    # Показываем «бегущую ленту» пока модель думает
+    placeholder = st.empty()
+    start_time = time.time()
+    timeout = 600  # 10 минут
+    i = 0
+    _fwd = ["■□□□□□□□□□", "□■□□□□□□□□", "□□■□□□□□□□",
+            "□□□■□□□□□□", "□□□□■□□□□□", "□□□□□■□□□□",
+            "□□□□□□■□□□", "□□□□□□□■□□", "□□□□□□□□■□",
+            "□□□□□□□□□■"]
+    frames = _fwd + _fwd[-2:0:-1]  # пинг-понг: туда и обратно
+    
+    while not result["done"]:
+        if time.time() - start_time > timeout:
+            placeholder.empty()
+            st.caption("Превышено время ожидания (10 минут). Модель не ответила.")
+            return
+        frame = frames[i % len(frames)]
+        placeholder.markdown(f"`[■{frame[1:]}] Iris is thinking...`")
+        i += 1
+        time.sleep(0.3)
+    
+    placeholder.empty()
+    
+    if result["error"]:
+        st.caption(f"Ошибка: {result['error'][:100]}")
+        return
+    
+    text = result["text"] or ""
     chunk = 3
-    for i in range(0, len(text), chunk):
-        yield text[i:i + chunk]
+    for j in range(0, len(text), chunk):
+        yield text[j:j + chunk]
 
 
 try:

@@ -102,6 +102,43 @@ def get_range(from_ts, to_ts):
     return [r for r in _iter_all() if from_ts <= r["ts"] <= to_ts]
 
 
+def rebuild_index():
+    """Recount index.json from archive.jsonl. Use after manual edits."""
+    _ensure_dir()
+    total = 0
+    first_ts = None
+    last_ts = None
+    days = []
+    if os.path.exists(ARCHIVE):
+        with open(ARCHIVE, "r", encoding="utf-8-sig") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                total += 1
+                ts = rec.get("ts")
+                if ts:
+                    if first_ts is None or ts < first_ts:
+                        first_ts = ts
+                    if last_ts is None or ts > last_ts:
+                        last_ts = ts
+                d = rec.get("date")
+                if d and d not in days:
+                    days.append(d)
+    idx = {
+        "total": total,
+        "first_ts": first_ts,
+        "last_ts": last_ts,
+        "days": sorted(days),
+    }
+    _save_index(idx)
+    return idx
+
+
 def stats():
     idx = _load_index()
     size = os.path.getsize(ARCHIVE) if os.path.exists(ARCHIVE) else 0
