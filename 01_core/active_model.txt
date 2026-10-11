@@ -1,1 +1,1 @@
-Ministral-3-3B-Instruct-2512-Q4_K_M.gguf
+gemma-4-E4B-it-Q4_K_M.gguf

@@ -85,6 +85,22 @@ def _to_chat(window):
     return [{"role": m["role"], "content": m["content"]} for m in window]
 
 
+def _normalize_roles(msgs):
+    """Remove consecutive identical roles (except system)."""
+    out = []
+    last = None
+    for m in msgs:
+        r = m.get("role")
+        if r == "system":
+            out.append(m)
+            continue
+        if r == last:
+            continue
+        out.append(m)
+        last = r
+    return out
+
+
 
 # ---------- context assembly (role + project) ----------
 
@@ -334,7 +350,7 @@ def _index_dialog(user_text, assistant_text, session_id=""):
     return {"ok": bool(added), "id": key}
 
 
-def chat_one(user_text, max_tokens=256, temperature=0.7, top_p=0.9,
+def chat_one(user_text, max_tokens=1024, temperature=0.7, top_p=0.9,
              auto_compact=True):
     """
     One turn: append user, maybe compact, generate, append assistant.
@@ -347,10 +363,9 @@ def chat_one(user_text, max_tokens=256, temperature=0.7, top_p=0.9,
     storage.append("user", user_text, tokens=user_tokens)
     long_memory.append("user", user_text, session_id="", tokens=user_tokens)
 
-    # 2. Append user to window
+    # 2. Append user to window (in-memory, write later)
     window = storage.read_window()
     window.append({"role": "user", "content": user_text})
-    storage.write_window(window)
 
     # 3. Maybe compact
     compaction_info = {"triggered": False}
@@ -440,9 +455,18 @@ def chat_one(user_text, max_tokens=256, temperature=0.7, top_p=0.9,
             trimmed, q_tokens = _truncate_text(llama, last["content"], budget["query"])
             chat_msgs[-1] = {"role": "user", "content": trimmed}
 
-    # 5. Generate
-    r = generate(llama, chat_msgs, max_tokens=max_tokens,
-                 temperature=temperature, top_p=top_p)
+    # 5. Generate (with rollback on failure)
+    chat_msgs = _normalize_roles(chat_msgs)
+    try:
+        r = generate(llama, chat_msgs, max_tokens=max_tokens,
+                     temperature=temperature, top_p=top_p)
+    except Exception as e:
+        # Откат: убираем последний user из window
+        window = storage.read_window()
+        if window and window[-1].get("role") == "user":
+            window.pop()
+            storage.write_window(window)
+        raise
 
     # 6. Tool-use: one iteration max
     tool_info = {"called": [], "iterations": 0}
@@ -522,7 +546,6 @@ def chat_one(user_text, max_tokens=256, temperature=0.7, top_p=0.9,
         _index_dialog(user_text, answer, session_id="")
     except Exception:
         pass
-    window = storage.read_window()
     window.append({"role": "assistant", "content": answer})
     storage.write_window(window)
 
@@ -569,9 +592,16 @@ def list_models(weights_dir=None):
 def current_model():
     """Имя файла текущей модели или None."""
     global _META
-    if _META is None:
+    if _META is not None:
+        return _META.get("model")
+    # Fallback: читаем active_model.txt до загрузки
+    try:
+        path = os.path.join(X, "01_core", "active_model.txt")
+        with open(path, "r", encoding="utf-8-sig") as f:
+            name = f.read().strip()
+            return name or None
+    except Exception:
         return None
-    return _META.get("model")
 
 
 def load_model_by_name(model_name, weights_dir=None):

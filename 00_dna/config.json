@@ -1,0 +1,38 @@
+{
+  "model": {
+    "backend": "llama-cpp-python",
+    "n_ctx": 9000,
+    "n_batch": 512,
+    "max_tokens": 512,
+    "n_threads": 2,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "gguf_dir": "X:\\01_core\\weights",
+    "active_file": "X:\\01_core\\active_model.txt",
+    "verbose": false
+  },
+  "memory": {
+    "fast_max_messages": 40,
+    "working_ttl_days": 7,
+    "chroma_collection": "iris_memory"
+  },
+  "reflection": {
+    "schedule": "03:00",
+    "consolidate_after_days": 3
+  },
+  "compaction": {
+    "t_max": 4500,
+    "t_retained": 2000,
+    "summary_tokens": 400,
+    "archive_originals": true
+  },
+  "budget": {
+    "core": 600,
+    "role": 400,
+    "project": 400,
+    "retrieval": 1600,
+    "window": 4500,
+    "query": 600,
+    "reserve": 700
+  }
+}

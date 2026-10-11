@@ -1,0 +1,697 @@
+{
+  "47bead531c7898b6": {
+    "file": "test_notes.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-02T11:52:24"
+  },
+  "856023fe0326140d": {
+    "file": "test_philosophy.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-02T11:52:24"
+  },
+  "dialog_6e4336aed9500498": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T08:29:31"
+  },
+  "dialog_8a7bf5bf64345463": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T08:30:02"
+  },
+  "dialog_a7b6cf55da376c6e": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T08:43:48"
+  },
+  "dialog_c5dbec9929fe4977": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T09:19:26"
+  },
+  "dialog_bae6e889ea9efc7a": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T09:40:14"
+  },
+  "dialog_39084dd97346be76": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T09:41:29"
+  },
+  "dialog_fd28b293717c4bba": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T09:43:31"
+  },
+  "539e391559db8c3c": {
+    "file": "Бенджамин Либет.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:09"
+  },
+  "d7b5524cf0d91039": {
+    "file": "Жан Бодрийяр.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:09"
+  },
+  "ed774a65c93b5caf": {
+    "file": "Конрад Цузе.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:09"
+  },
+  "e6a97d47b52badee": {
+    "file": "Кристофер Данн.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:09"
+  },
+  "7d5611abbc47cc3d": {
+    "file": "Сигнал и задержки кандидатская.md",
+    "chunks": 15,
+    "indexed_at": "2026-10-06T15:45:10"
+  },
+  "a9cb59b03c721f5d": {
+    "file": "Стюарт Хамерофф.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:10"
+  },
+  "7dcf29c752a3d768": {
+    "file": "Теория всего.md",
+    "chunks": 3,
+    "indexed_at": "2026-10-06T15:45:10"
+  },
+  "681968acca8863a2": {
+    "file": "Уильям Берроуз.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:10"
+  },
+  "e113e9a8046516b0": {
+    "file": "Ханнес Альвен.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:10"
+  },
+  "6a8e9e033fcd22e4": {
+    "file": "Эдвард Фредкин.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T15:45:11"
+  },
+  "dialog_edbfbaca2a5b390a": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:14:43"
+  },
+  "dialog_c85ed9c7dfdffff9": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:16:01"
+  },
+  "dialog_30df8ff7167ee607": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:18:12"
+  },
+  "dialog_b0e31285f04d25da": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:20:12"
+  },
+  "f68bec55878c0a54": {
+    "file": "Бренд фин.md",
+    "chunks": 4,
+    "indexed_at": "2026-10-06T17:21:39"
+  },
+  "7e49e9bc277cecb9": {
+    "file": "Мой бренд.md",
+    "chunks": 4,
+    "indexed_at": "2026-10-06T17:21:39"
+  },
+  "318f635bd48d94dd": {
+    "file": "unified_model.txt",
+    "chunks": 5,
+    "indexed_at": "2026-10-06T17:24:21"
+  },
+  "dialog_70ac3ec5bf98c35a": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:29:13"
+  },
+  "dialog_1ee5f7ca9031cf7d": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:33:41"
+  },
+  "dialog_d4df81d0e5648de9": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:36:29"
+  },
+  "dialog_00cd2d8a42b8d737": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:45:19"
+  },
+  "dialog_31453d8a4ceec0c8": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:48:24"
+  },
+  "dialog_8d95b9c09343e765": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:51:34"
+  },
+  "dialog_67a6900f62682105": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:53:39"
+  },
+  "dialog_5a8950475220604c": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T17:57:51"
+  },
+  "dialog_691441ab884319d6": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T18:08:02"
+  },
+  "dialog_36dd3df9d96d4918": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T18:13:36"
+  },
+  "dialog_60be43101061d53a": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T18:21:59"
+  },
+  "dialog_1e5738c8696eaea2": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T18:30:14"
+  },
+  "dialog_d8a9d7b35c4c01bf": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T18:48:20"
+  },
+  "74b1e917e060b5b3": {
+    "file": "Жан Бодрийяр.md",
+    "chunks": 1,
+    "indexed_at": "2026-10-06T19:15:24"
+  },
+  "dialog_60d5780a8922682e": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T08:09:42"
+  },
+  "dialog_b997eeddca7f6a4f": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T08:40:12"
+  },
+  "dialog_23b2ccafe0f2c68d": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T08:58:59"
+  },
+  "dialog_7b322bef081116a3": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T09:05:10"
+  },
+  "dialog_bbf203c746dda9a8": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T09:14:39"
+  },
+  "dialog_07f561e53659dca4": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T09:21:24"
+  },
+  "dialog_802b22d71bcc91a2": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T09:28:04"
+  },
+  "dialog_f3eb92030ca1b74d": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T09:42:08"
+  },
+  "dialog_e7789d1bd080e15a": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-07T09:57:55"
+  },
+  "dialog_d0dc287de4dc4cbb": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T12:41:03"
+  },
+  "dialog_49da65885b72714f": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T13:22:06"
+  },
+  "dialog_242b106045b8d0fd": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T16:49:54"
+  },
+  "dialog_1f8d01d24038d66a": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T16:58:48"
+  },
+  "dialog_f3400e4bc04e516f": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T17:07:21"
+  },
+  "dialog_92d75d9d8c8d5864": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T17:27:25"
+  },
+  "dialog_83e36e421b14d804": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T17:41:20"
+  },
+  "dialog_4a0a641a623ad5ca": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T17:58:10"
+  },
+  "dialog_8b4b990b685d1a5f": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:11:20"
+  },
+  "dialog_aead66eb46c4997c": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:20:52"
+  },
+  "3a253abfde1be11b": {
+    "file": "09889.txt",
+    "chunks": 72,
+    "indexed_at": "2026-10-10T18:40:36"
+  },
+  "7a6618b414a1971d": {
+    "file": "1.1.15..txt",
+    "chunks": 83,
+    "indexed_at": "2026-10-10T18:40:42"
+  },
+  "81673980e307124e": {
+    "file": "1.1.4.txt",
+    "chunks": 101,
+    "indexed_at": "2026-10-10T18:40:50"
+  },
+  "1437e865ff222e0c": {
+    "file": "1.6.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:40:50"
+  },
+  "e0897f2b212d0f21": {
+    "file": "1.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:40:50"
+  },
+  "861b32cdc0a12a9f": {
+    "file": "11.12.txt",
+    "chunks": 12,
+    "indexed_at": "2026-10-10T18:40:51"
+  },
+  "bd960aa8f36712cb": {
+    "file": "11.txt",
+    "chunks": 11,
+    "indexed_at": "2026-10-10T18:40:52"
+  },
+  "10c891c17e9a0a6f": {
+    "file": "111.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:40:52"
+  },
+  "750157ad6acb2d87": {
+    "file": "12..443.4.txt",
+    "chunks": 99,
+    "indexed_at": "2026-10-10T18:41:00"
+  },
+  "82daaef7e1133b35": {
+    "file": "1234565678.txt",
+    "chunks": 25,
+    "indexed_at": "2026-10-10T18:41:02"
+  },
+  "23e80ac1a0beb5a0": {
+    "file": "173783.txt",
+    "chunks": 72,
+    "indexed_at": "2026-10-10T18:41:07"
+  },
+  "672ede9a4417e047": {
+    "file": "2.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:41:08"
+  },
+  "232e28f01dad5751": {
+    "file": "25364.txt",
+    "chunks": 139,
+    "indexed_at": "2026-10-10T18:41:18"
+  },
+  "75fd52955c97c85c": {
+    "file": "3.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:41:18"
+  },
+  "4706d215fe8bddc3": {
+    "file": "333.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:41:18"
+  },
+  "06526e8e55bf6988": {
+    "file": "343.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:41:18"
+  },
+  "e5a70614f12c9e8e": {
+    "file": "34343.43.43..txt",
+    "chunks": 90,
+    "indexed_at": "2026-10-10T18:41:25"
+  },
+  "0fad3d5018729d89": {
+    "file": "4.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:41:26"
+  },
+  "5d691355472bb559": {
+    "file": "4534564.txt",
+    "chunks": 91,
+    "indexed_at": "2026-10-10T18:41:33"
+  },
+  "b55125eb4a368247": {
+    "file": "4564.txt",
+    "chunks": 20,
+    "indexed_at": "2026-10-10T18:41:34"
+  },
+  "8cdaf33e9c599e10": {
+    "file": "47757575.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:41:35"
+  },
+  "0cd238b4a0912706": {
+    "file": "4845858.txt",
+    "chunks": 92,
+    "indexed_at": "2026-10-10T18:41:41"
+  },
+  "1d4956499595cdd0": {
+    "file": "484845.txt",
+    "chunks": 69,
+    "indexed_at": "2026-10-10T18:41:47"
+  },
+  "e11287b82fc9e047": {
+    "file": "5.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:41:47"
+  },
+  "b6dd417db3da2f36": {
+    "file": "5675.9887.txt",
+    "chunks": 34,
+    "indexed_at": "2026-10-10T18:41:49"
+  },
+  "c6b880c128154687": {
+    "file": "56868.txt",
+    "chunks": 25,
+    "indexed_at": "2026-10-10T18:41:51"
+  },
+  "7a1421d366e2ab3f": {
+    "file": "5845.txt",
+    "chunks": 91,
+    "indexed_at": "2026-10-10T18:41:58"
+  },
+  "c6e45085a2bb1c0e": {
+    "file": "6.txt",
+    "chunks": 9,
+    "indexed_at": "2026-10-10T18:41:59"
+  },
+  "c2c54651d8160ace": {
+    "file": "645654.txt",
+    "chunks": 25,
+    "indexed_at": "2026-10-10T18:42:01"
+  },
+  "31e0ce5142b4e704": {
+    "file": "6666.txt",
+    "chunks": 63,
+    "indexed_at": "2026-10-10T18:42:06"
+  },
+  "d907ff2543d39107": {
+    "file": "7.txt",
+    "chunks": 7,
+    "indexed_at": "2026-10-10T18:42:07"
+  },
+  "b44576dc7f924c0f": {
+    "file": "77.txt",
+    "chunks": 17,
+    "indexed_at": "2026-10-10T18:42:08"
+  },
+  "4e57669d337a2bfb": {
+    "file": "8567865.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:42:08"
+  },
+  "5d52429e290a9264": {
+    "file": "858658.txt",
+    "chunks": 50,
+    "indexed_at": "2026-10-10T18:42:12"
+  },
+  "71d44f34c0fdd8ed": {
+    "file": "86768698.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:42:12"
+  },
+  "0bb551504a4a563a": {
+    "file": "ALL MEMORY G.txt",
+    "chunks": 31,
+    "indexed_at": "2026-10-10T18:42:15"
+  },
+  "706e9b5a2fde1040": {
+    "file": "IRIS_MANIFEST.txt",
+    "chunks": 25,
+    "indexed_at": "2026-10-10T18:42:17"
+  },
+  "2d95a48cfc640818": {
+    "file": "New Text Document (2).txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:42:17"
+  },
+  "ee85bdc559b90b01": {
+    "file": "New Text Document.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:42:17"
+  },
+  "b118a3fc4467a3ff": {
+    "file": "dialog_1.txt",
+    "chunks": 9,
+    "indexed_at": "2026-10-10T18:42:18"
+  },
+  "2d1349836a179c32": {
+    "file": "dialog_2.txt",
+    "chunks": 47,
+    "indexed_at": "2026-10-10T18:42:22"
+  },
+  "3ce863a111cea572": {
+    "file": "dialog_3.txt",
+    "chunks": 15,
+    "indexed_at": "2026-10-10T18:42:23"
+  },
+  "afa0a973d39c3e94": {
+    "file": "dialog_4.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:42:23"
+  },
+  "554ab4113612e653": {
+    "file": "dialog_5.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:42:23"
+  },
+  "e3008b156facd441": {
+    "file": "freelasnce.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:42:24"
+  },
+  "e21094ed969e1b81": {
+    "file": "iris 2.txt",
+    "chunks": 9,
+    "indexed_at": "2026-10-10T18:42:25"
+  },
+  "2219b5e55432b988": {
+    "file": "promt iris.txt",
+    "chunks": 25,
+    "indexed_at": "2026-10-10T18:42:27"
+  },
+  "823a5c5fa655f532": {
+    "file": "Код люцифер.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:42:27"
+  },
+  "2493922029a85e19": {
+    "file": "ФИКСЫ АЙРИС.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:42:27"
+  },
+  "dca81a3a17073504": {
+    "file": "айрис тг.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:42:28"
+  },
+  "cf57c62f6380bf99": {
+    "file": "апгрейд.txt",
+    "chunks": 58,
+    "indexed_at": "2026-10-10T18:42:32"
+  },
+  "380ce015976a488a": {
+    "file": "вин оптимизация.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:42:32"
+  },
+  "e4d2a1d36ba17027": {
+    "file": "дом.txt",
+    "chunks": 30,
+    "indexed_at": "2026-10-10T18:42:35"
+  },
+  "c35bd72d5091a025": {
+    "file": "зерус.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:42:35"
+  },
+  "659f2a21fa9f347b": {
+    "file": "изолированая сеть.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:42:35"
+  },
+  "659560e36d2eeb6c": {
+    "file": "контекст.txt",
+    "chunks": 4,
+    "indexed_at": "2026-10-10T18:42:36"
+  },
+  "fa4bb8f6c818cb5a": {
+    "file": "личный бренд.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:42:36"
+  },
+  "9d4e1cab585a20a9": {
+    "file": "матрикс.txt",
+    "chunks": 5,
+    "indexed_at": "2026-10-10T18:42:37"
+  },
+  "aaf459816b4774b9": {
+    "file": "матрица.txt",
+    "chunks": 11,
+    "indexed_at": "2026-10-10T18:42:38"
+  },
+  "e5c0a6f071f9ab7b": {
+    "file": "память джемени.txt",
+    "chunks": 415,
+    "indexed_at": "2026-10-10T18:43:08"
+  },
+  "b24b24b89d96e678": {
+    "file": "промт кодера.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:43:09"
+  },
+  "ed78d3df2684aeae": {
+    "file": "промт писателя.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:43:09"
+  },
+  "203039fb99fb281e": {
+    "file": "промт по документам.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:43:09"
+  },
+  "4ae1dde4e8635976": {
+    "file": "промты Айрис.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:43:09"
+  },
+  "b3ae90a47eab3092": {
+    "file": "псих портрет.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:43:09"
+  },
+  "07e3deef1f4c3618": {
+    "file": "сервер.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:43:09"
+  },
+  "fba480adab28c56f": {
+    "file": "симуляция и законы.txt",
+    "chunks": 10,
+    "indexed_at": "2026-10-10T18:43:10"
+  },
+  "3b4ccf7c925247dd": {
+    "file": "создание 1.7 .txt",
+    "chunks": 425,
+    "indexed_at": "2026-10-10T18:43:42"
+  },
+  "010276991cf66e93": {
+    "file": "структура памяти.txt",
+    "chunks": 2,
+    "indexed_at": "2026-10-10T18:43:42"
+  },
+  "b052313a6c12b634": {
+    "file": "тех.txt",
+    "chunks": 3,
+    "indexed_at": "2026-10-10T18:43:42"
+  },
+  "ee78b29e30f19e5b": {
+    "file": "что нужно для сайта.txt",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T18:43:42"
+  },
+  "e6c3f60566c7dd8d": {
+    "file": "яяя.txt",
+    "chunks": 5,
+    "indexed_at": "2026-10-10T18:43:43"
+  },
+  "dialog_f0fc9052ac26bd99": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T19:04:07"
+  },
+  "dialog_3d1ecddb79cf7fff": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T19:21:59"
+  },
+  "dialog_4902eb3fff30ed01": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T19:36:21"
+  },
+  "dialog_de82836bb7431510": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T19:48:59"
+  },
+  "dialog_ca791a3188127413": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T19:58:01"
+  },
+  "dialog_ecff8ba4f00cb363": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T20:08:58"
+  },
+  "dialog_76cf5ced6fdedf3c": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T20:31:36"
+  },
+  "dialog_9e683293483ceca8": {
+    "file": "dialog",
+    "chunks": 1,
+    "indexed_at": "2026-10-10T20:42:13"
+  }
+}

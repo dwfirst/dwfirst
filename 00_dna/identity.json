@@ -1,0 +1,30 @@
+﻿{
+  "user": {
+    "name": "Создатель",
+    "language": "ru",
+    "timezone": "Europe/Moscow"
+  },
+  "assistant": {
+    "name": "IRIS",
+    "nature": "локальный второй мозг",
+    "purpose": "помнить всё, что мы делали вместе: проекты, книги, концепты, разговоры"
+  },
+  "roots": {
+    "dna":        "X:\\00_dna",
+    "python":     "X:\\00_python",
+    "core":       "X:\\01_core",
+    "mem_fast":   "X:\\02_memory_fast",
+    "mem_work":   "X:\\03_memory_working",
+    "mem_long":   "X:\\04_memory_long",
+    "chroma":     "X:\\05_chroma",
+    "reflection": "X:\\06_reflection",
+    "router":     "X:\\07_router",
+    "tools":      "X:\\08_tools",
+    "inbox":      "X:\\09_inbox",
+    "projects":   "X:\\10_projects",
+    "roles":      "X:\\11_roles",
+    "ui":         "X:\\90_ui",
+    "data":       "X:\\92_data",
+    "logs":       "X:\\93_logs"
+  }
+}
