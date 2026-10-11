@@ -1,0 +1,12 @@
+# Нормализация переносов строк
+* text=auto eol=lf
+
+# Бинарные файлы
+*.gguf binary
+*.safetensors binary
+*.bin binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.sqlite3 binary
+*.pickle binary
