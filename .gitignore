@@ -25,3 +25,12 @@ _trash_*
 audit_*.txt
 dupes.txt
 *.log
+# Бэкапы — НЕ в GitHub
+92_data/_inbox_backup_*/
+92_data/_memory_backup_*/
+92_data/_trash_*/
+92_data/_bak_cleanup_*/
+92_data/tmp/
+92_data/test_*.py
+92_data/seed_*.py
+92_data/fix_*.py
