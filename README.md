@@ -32,10 +32,9 @@ I don't build products. I design *directions*.
 ### `CORE COMPETENCIES`
 
 - **`SYSTEMS ARCHITECTURE`** — Translating complex conceptual theories into balanced, robust, highly adaptive system layouts. Eliminating chaos through structural hierarchy.
-
 - **`PROMPT ARCHITECTURE`** — Designing instruction layers for language models — shaping not just what they say, but what they notice.
-
 - **`ECOSYSTEM DESIGN`** — Engineering efficient, ultra-low-latency asynchronous data streams grounded in natural balance and structural resilience.
+- **`HARDWARE GROUNDING`** — Trained hands. I've soldered, wired, and repaired the physical layer that systems live on. Concepts don't stay abstract when you know how a PCB smells when it burns.
 
 ---
 
